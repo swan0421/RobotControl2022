@@ -38,7 +38,7 @@
 ### 1.[Download](https://github.com/swan0421/RobotControl2022) and Setting RobotControl2022
 1. [RobotControl2022 Repository](https://github.com/swan0421/RobotControl2022)에 접속, link : https://github.com/swan0421/RobotControl2022
 2. 해당 Repository에 접속 후에, `Code ▼`라는 초록색 버튼이 있는데 클릭하여 URL 주소 (https:/~)을 복사하거나,`Download ZIP` 을 통해 해당 패키지를 다운 받습니다.
-3. NetBeans의 `Team` > `Remote` > `clone` 을 누른후, `Repository URL`을 https://github.com/swan0421/RobotControl2022.git 으로 설정합니다. (만약, NetBeans에서 `Team` > `Remote` > `clone` 경로가 보이지 않는 경우, NetBeans 화면 좌측에 있는 Projects 패널에서 catkin_ws 를 클릭하면 보이며, 위의 경로는 git에 연동되었을 때 활성화되는 경로이므로 처음 연동하는 것이라면, Team > git > clone으로 해도 됨) User에는 GitHUB의 user_name을 쓰고, Password에는 GitHUB의 `Token password`를 입력한 후 NEXT를 누릅니다.다
+3. NetBeans의 `Team` > `Git` > `clone` 을 누른후, `Repository URL`을 https://github.com/swan0421/RobotControl2022.git 으로 설정합니다. (만약, NetBeans에서 `Team` > `Git` > `clone` 경로가 보이지 않는 경우, NetBeans 화면 좌측에 있는 Projects 패널에서 catkin_ws 를 클릭하면 보이며, 위의 경로는 git에 연동되었을 때 활성화되는 경로이므로 처음 연동하는 것이라면, Team > git > clone으로 해도 됨) User에는 GitHUB의 user_name을 쓰고, Password에는 GitHUB의 `Token password`를 입력한 후 NEXT를 누릅니다.다
 4. Select Remote Branches를 `master*` 로 선택하고 Next를 누릅니다.
 
 5. Parent Directory를 사용자의 `home/user_name/catkin_ws/src` 경로로 설정하고, Clone name을 사용자가 원하는 이름으로 설정하고, (참고 : Clone Name은 패키지에 관련된 이름으로 써서 다른 폴더들과 구별 지을 것) Checkout Branch는 `master*` 로 설정하고, Remote Name은 origin으로 설정한 후 Finish를 누릅니다.
@@ -50,6 +50,8 @@
          
 8. 패키지를 컴파일하기 위해 Netbeans에서 터미널 창을 열거나 기본 터미널 창에서 `catkin_make`을 입력하여 컴파일을 진행합니다. (터미널 창이 안보인다면, Netbeans의 상단 `Winodow > IDE Tools > Termianl` 을 클릭)
 
+9. 만약, `catkin_make`가 안될 경우, section 2를 해보시기 바랍니다.
+----
 
 ### 2.Libraries used in RobotControl2022 Package
 
@@ -89,6 +91,8 @@ cmake -D RBDL_BUILD_ADDON_URDFREADER=true ../
 make 
 sudo make install
 ```
+3. 그리고 다시 패키지를 컴파일하기 위해 Netbeans에서 터미널 창을 열거나 기본 터미널 창에서 `catkin_make`을 입력하여 컴파일을 진행합니다.
+----
 
 ### 3.How to run RobotControl2022 package
 #### **!! 시뮬레이션 실행 전에 확인 해야하거나 셋팅 !!**
@@ -213,8 +217,13 @@ void gazebo::rok3_plugin::Load(physics::ModelPtr _model, sdf::ElementPtr /*_sdf*
 }
 ```
 
-**모든 준비 과정이 끝나면, 다음과 같은 명령어를 통해 시뮬레이션 실행**
-터미널 창에
+**모든 준비 과정이 끝나면, `catkin_make`을 입력하여 컴파일을 진행합니다.**
+
+```
+catkin_make
+```
+**최종적으로, 다음과 같은 명령어를 통해 시뮬레이션 실행**
+
 ```
 roslaunch rok3_study_pkgs rok3.launch
 ```

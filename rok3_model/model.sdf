@@ -1,0 +1,977 @@
+<?xml version="1.0"?>
+<sdf version='1.6'>
+  <model name='rok3_model'>
+  <!--joint name="fixed to world" type="fixed">
+      <parent>world</parent>
+      <child>base_link</child>
+    </joint-->
+    <link name='base_link'>
+      <pose frame=''>0 0 0 0 -0 0</pose>
+      <inertial>
+        <pose frame=''>-0.00929 0 0.00778 0 -0 0</pose>
+        <mass>4.91195</mass>
+        <inertia>
+          <ixx>0.0365</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.00772</iyy>
+          <iyz>0</iyz>
+          <izz>0.03493</izz>
+        </inertia>
+      </inertial>
+      <!-- <collision name='base_link_collision'>
+        <pose frame=''>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://rok3_model/meshes/base_link.STL</uri>
+          </mesh>
+        </geometry>
+      </collision> -->
+      <visual name='base_link_visual'>
+        <pose frame=''>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://rok3_model/meshes/base_link.STL</uri>
+          </mesh>
+        </geometry>
+        <material>
+               <ambient>158 158 158 1</ambient>
+               <diffuse>1 1 1 1</diffuse>
+               <emissive>0 0 0 1</emissive>
+               <specular>0 0 0 0</specular>
+      	</material>
+      </visual>
+    </link>
+    <link name='L_Hip_yaw_link'>
+      <pose frame=''>0 0.105 -0.1512 0 -0 0</pose>
+      <inertial>
+        <pose frame=''>0.00818 0 0.05977 0 -0 0</pose>
+        <mass>0.52735</mass>
+        <inertia>
+          <ixx>0.00108</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.0026</iyy>
+          <iyz>0</iyz>
+          <izz>0.00191</izz>
+        </inertia>
+      </inertial>
+      <!-- <collision name='L_Hip_yaw_link_collision'>
+        <pose frame=''>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://rok3_model/meshes/L_Hip_yaw_link.STL</uri>
+          </mesh>
+        </geometry>
+      </collision> -->
+      <visual name='L_Hip_yaw_link_visual'>
+        <pose frame=''>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://rok3_model/meshes/L_Hip_yaw_link.STL</uri>
+          </mesh>
+        </geometry>
+        <material>
+               <ambient>229 57 53 1</ambient>
+               <diffuse>1 1 1 1</diffuse>
+               <emissive>0 0 0 1</emissive>
+               <specular>0 0 0 0</specular>
+        </material>
+      </visual>
+    </link>
+    <joint name='L_Hip_yaw_joint' type='revolute'>
+      <child>L_Hip_yaw_link</child>
+      <parent>base_link</parent>
+      <axis>
+        <xyz>0 0 1</xyz>
+        <limit>
+          <lower>-3.141592*2</lower>
+          <upper>3.141592*2</upper>
+          <effort>-1</effort>
+          <velocity>-1</velocity>
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+        <use_parent_model_frame>1</use_parent_model_frame>
+      </axis>
+    </joint>
+    <link name='L_Hip_roll_pitch_link'>
+      <pose frame=''>0 0.105 -0.1512 0 -0 0</pose>
+      <inertial>
+        <pose frame=''>0.008 0.01822 -1e-05 0 -0 0</pose>
+        <mass>3.9265</mass>
+        <inertia>
+          <ixx>0.00689</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.00735</iyy>
+          <iyz>0</iyz>
+          <izz>0.00861</izz>
+        </inertia>
+      </inertial>
+      <!-- <collision name='L_Hip_roll_pitch_link_collision'>
+        <pose frame=''>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://rok3_model/meshes/L_Hip_roll_pitch_link.STL</uri>
+          </mesh>
+        </geometry>
+      </collision> -->
+      <visual name='L_Hip_roll_pitch_link_visual'>
+        <pose frame=''>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://rok3_model/meshes/L_Hip_roll_pitch_link.STL</uri>
+          </mesh>
+        </geometry>
+        <material>
+              <ambient>21 101 192 1</ambient>
+              <diffuse>1 1 1 1</diffuse>
+              <emissive>0 0 0 1</emissive>
+              <specular>0 0 0 0</specular>
+        </material>
+      </visual>
+    </link>
+    <joint name='L_Hip_roll_joint' type='revolute'>
+      <child>L_Hip_roll_pitch_link</child>
+      <parent>L_Hip_yaw_link</parent>
+      <axis>
+        <xyz>1 0 0</xyz>
+        <limit>
+          <lower>-3.141592*2</lower>
+          <upper>3.141592*2</upper>
+          <effort>-1</effort>
+          <velocity>-1</velocity>
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+        <use_parent_model_frame>1</use_parent_model_frame>
+      </axis>
+    </joint>
+    <link name='L_Thigh_link'>
+      <pose frame=''>0 0.105 -0.1512 0 -0 0</pose>
+      <inertial>
+        <pose frame=''>0.01373 0.0244 -0.22423 0 -0 0</pose>
+        <mass>4.9728</mass>
+        <inertia>
+          <ixx>0.07468</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.07322</iyy>
+          <iyz>0</iyz>
+          <izz>0.01579</izz>
+        </inertia>
+      </inertial>
+      <!-- <collision name='L_Thigh_link_collision'>
+        <pose frame=''>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://rok3_model/meshes/L_Thigh_link.STL</uri>
+          </mesh>
+        </geometry>
+      </collision> -->
+      <visual name='L_Thigh_link_visual'>
+        <pose frame=''>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://rok3_model/meshes/L_Thigh_link.STL</uri>
+          </mesh>
+        </geometry>
+        <material>
+              <ambient>0 0 0 1</ambient>
+              <diffuse>1 1 1 1</diffuse>
+              <emissive>0 0 0 1</emissive>
+              <specular>0 0 0 0</specular>
+        </material>
+      </visual>
+    </link>
+    <joint name='L_Hip_pitch_joint' type='revolute'>
+      <child>L_Thigh_link</child>
+      <parent>L_Hip_roll_pitch_link</parent>
+      <axis>
+        <xyz>0 1 0</xyz>
+        <limit>
+          <lower>-3.141592*2</lower>
+          <upper>3.141592*2</upper>
+          <effort>-1</effort>
+          <velocity>-1</velocity>
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+        <use_parent_model_frame>1</use_parent_model_frame>
+      </axis>
+    </joint>
+    <link name='L_Calf_link'>
+      <pose frame=''>0 0.105 -0.5012 0 -0 0</pose>
+      <inertial>
+        <pose frame=''>0.01497 0.0128 -0.18288 0 -0 0</pose>
+        <mass>3.378</mass>
+        <inertia>
+          <ixx>0.05941</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.05717</iyy>
+          <iyz>0</iyz>
+          <izz>0.00957</izz>
+        </inertia>
+      </inertial>
+      <!-- <collision name='L_Calf_link_collision'>
+        <pose frame=''>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://rok3_model/meshes/L_Calf_link.STL</uri>
+          </mesh>
+        </geometry>
+      </collision> -->
+      <visual name='L_Calf_link_visual'>
+        <pose frame=''>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://rok3_model/meshes/L_Calf_link.STL</uri>
+          </mesh>
+        </geometry>
+        <material>
+              <ambient>0 0 0 1</ambient>
+              <diffuse>1 1 1 1</diffuse>
+              <emissive>0 0 0 1</emissive>
+              <specular>0 0 0 0</specular>
+        </material>
+      </visual>
+    </link>
+    <joint name='L_Knee_joint' type='revolute'>
+      <child>L_Calf_link</child>
+      <parent>L_Thigh_link</parent>
+      <axis>
+        <xyz>0 1 0</xyz>
+        <limit>
+          <lower>-3.141592*2</lower>
+          <upper>3.141592*2</upper>
+          <effort>-1</effort>
+          <velocity>-1</velocity>
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+        <use_parent_model_frame>1</use_parent_model_frame>
+      </axis>
+    </joint>
+    <link name='L_Ankle_pitch_link'>
+      <pose frame=''>0 0.1051 -0.8512 0 -0 0</pose>
+      <inertial>
+        <pose frame=''>0.01836 -0.00287 0.00268 0 -0 0</pose>
+        <mass>1.5671</mass>
+        <inertia>
+          <ixx>0.00139</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.00331</iyy>
+          <iyz>0</iyz>
+          <izz>0.00315</izz>
+        </inertia>
+      </inertial>
+      <!--<collision name='L_Ankle_pitch_link_collision'>
+        <pose frame=''>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://rok3_model/meshes/L_Ankle_pitch_link.STL</uri>
+          </mesh>
+        </geometry>
+      </collision> -->
+      <visual name='L_Ankle_pitch_link_visual'>
+        <pose frame=''>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://rok3_model/meshes/L_Ankle_pitch_link.STL</uri>
+          </mesh>
+        </geometry>
+        <material>
+              <ambient>21 101 192 1</ambient>
+              <diffuse>1 1 1 1</diffuse>
+              <emissive>0 0 0 1</emissive>
+              <specular>0 0 0 0</specular>
+        </material>
+      </visual>
+    </link>
+    <joint name='L_Ankle_pitch_joint' type='revolute'>
+      <child>L_Ankle_pitch_link</child>
+      <parent>L_Calf_link</parent>
+      <axis>
+        <xyz>0 1 0</xyz>
+        <limit>
+          <lower>-3.141592*2</lower>
+          <upper>3.141592*2</upper>
+          <effort>-1</effort>
+          <velocity>-1</velocity>
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+        <use_parent_model_frame>1</use_parent_model_frame>
+      </axis>
+    </joint>
+    <link name='L_Ankle_roll_link'>
+      <pose frame=''>0 0.1051 -0.8512 0 -0 0</pose>
+      <inertial>
+        <pose frame=''>0.01905 0 -0.03706 0 -0 0</pose>
+        <mass>0.20333</mass>
+        <inertia>
+          <ixx>0.00011</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.00063</iyy>
+          <iyz>0</iyz>
+          <izz>0.00059</izz>
+        </inertia>
+      </inertial>
+      <!-- <collision name='L_Ankle_roll_link_collision'>
+        <pose frame=''>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://rok3_model/meshes/L_Ankle_roll_link.STL</uri>
+          </mesh>
+        </geometry>
+      </collision> -->
+<!--      <collision name='L_Ankle_roll_link_fixed_joint_lump__L_Foot_collision_1'>
+        <pose frame=''>0 0 -0.09 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://rok3_model/meshes/L_Foot.STL</uri>
+          </mesh>
+        </geometry>
+      </collision>-->
+      <visual name='L_Ankle_roll_link_visual'>
+        <pose frame=''>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://rok3_model/meshes/L_Ankle_roll_link.STL</uri>
+          </mesh>
+        </geometry>
+        <material>
+              <ambient>229 57 53 1</ambient>
+              <diffuse>1 1 1 1</diffuse>
+              <emissive>0 0 0 1</emissive>
+              <specular>0 0 0 0</specular>
+        </material>
+      </visual>
+      </link>
+
+<!--      <visual name='L_Ankle_roll_link_fixed_joint_lump__L_Foot_visual_1'>
+        <pose frame=''>0 0 -0.09 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://rok3_model/meshes/L_Foot.STL</uri>
+          </mesh>
+        </geometry>
+        <material>
+              <ambient>0 0 0 1</ambient>
+              <diffuse>1 1 1 1</diffuse>
+              <emissive>0 0 0 1</emissive>
+              <specular>0 0 0 0</specular>
+        </material>
+      </visual>
+    -->
+    <joint name='L_Ankle_roll_joint' type='revolute'>
+      <child>L_Ankle_roll_link</child>
+      <parent>L_Ankle_pitch_link</parent>
+      <axis>
+        <xyz>1 0 0</xyz>
+        <limit>
+          <lower>-3.141592*2</lower>
+          <upper>3.141592*2</upper>
+          <effort>-1</effort>
+          <velocity>-1</velocity>
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+        <use_parent_model_frame>1</use_parent_model_frame>
+      </axis>
+    </joint>
+    <!-- Make L_FOOT_Sole-->
+    <link name='L_Foot_Sole'>
+          <pose frame=''>0 0.1051 -0.9412 0 -0 0</pose>
+          <inertial>
+            <pose frame=''>0 -0.001 0.00861 0 -0 0</pose>
+            <mass>0.92659</mass>
+            <inertia>
+              <ixx>0.00107</ixx>
+              <ixy>0</ixy>
+              <ixz>0</ixz>
+              <iyy>0.00323</iyy>
+              <iyz>0</iyz>
+              <izz>0.00412</izz>
+    	       </inertia>
+           </inertial>
+           <collision name='L_Foot_Sole'>
+            <pose frame=''>0 -0.001 -0.003 0 -0 0</pose>
+            <geometry>
+    	<box>
+    	<size>0.235 0.125 0.006</size>
+    	</box>
+    	<!--mesh>
+              <scale>1 1 1</scale>
+              <uri>model://rok3_model/meshes/L_Foot.STL</uri>
+            </mesh-->
+    	</geometry>
+            <surface>
+             <contact>
+              <ode>
+    	    <kp>10000000</kp>
+                <kd>10000</kd>
+                <max_vel>0.1</max_vel>
+                <min_depth>0.001</min_depth>
+              </ode>
+             </contact>
+            </surface>
+          </collision>
+          <visual name='L_Foot_Sole_visual'>
+            <pose frame=''>0 0 0 0 -0 0</pose>
+            <geometry>
+              <mesh>
+                <scale>1 1 1</scale>
+                <uri>model://rok3_model/meshes/L_Foot.STL</uri>
+              </mesh>
+            </geometry>
+    	 <material>
+          <ambient>1 0.5 0.1 1</ambient>
+          <diffuse>0.7 0.7 0.7 1</diffuse>
+          <specular>0.01 0.01 0.01 1</specular>
+          <emissive>0 0 0 1</emissive>
+    	 </material>
+          </visual>
+          <sensor name="L_Foot_contact" type='contact'>
+          <contact>
+           <collision>L_Foot_Sole</collision>
+          </contact>
+         </sensor>
+        </link>
+        <joint name="LS" type="fixed">
+          <child>L_Foot_Sole</child>
+          <parent>L_Ankle_roll_link</parent>
+          <sensor name="force_torque_left" type="force_torque">
+            <force_torque>
+              <frame>child</frame>
+              <measure_direction>child_to_parent</measure_direction>
+            </force_torque>
+          </sensor>
+        </joint>
+
+    <link name='R_Hip_yaw_link'>
+      <pose frame=''>0 -0.105 -0.1512 0 -0 0</pose>
+      <inertial>
+        <pose frame=''>0.00818 0 0.05977 0 -0 0</pose>
+        <mass>0.52735</mass>
+        <inertia>
+          <ixx>0.00108</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.0026</iyy>
+          <iyz>0</iyz>
+          <izz>0.00191</izz>
+        </inertia>
+      </inertial>
+      <!-- <collision name='R_Hip_yaw_link_collision'>
+        <pose frame=''>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://rok3_model/meshes/R_Hip_yaw_link.STL</uri>
+          </mesh>
+        </geometry>
+      </collision> -->
+      <visual name='R_Hip_yaw_link_visual'>
+        <pose frame=''>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://rok3_model/meshes/R_Hip_yaw_link.STL</uri>
+          </mesh>
+        </geometry>
+        <material>
+              <ambient>229 57 53 1</ambient>
+              <diffuse>1 1 1 1</diffuse>
+              <emissive>0 0 0 1</emissive>
+              <specular>0 0 0 0</specular>
+        </material>
+      </visual>
+    </link>
+    <joint name='R_Hip_yaw_joint' type='revolute'>
+      <child>R_Hip_yaw_link</child>
+      <parent>base_link</parent>
+      <axis>
+        <xyz>0 0 1</xyz>
+        <limit>
+          <lower>-3.141592*2</lower>
+          <upper>3.141592*2</upper>
+          <effort>-1</effort>
+          <velocity>-1</velocity>
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+        <use_parent_model_frame>1</use_parent_model_frame>
+      </axis>
+    </joint>
+    <link name='R_Hip_roll_pitch_link'>
+      <pose frame=''>0 -0.105 -0.1512 0 -0 0</pose>
+      <inertial>
+        <pose frame=''>0.008 -0.01822 -1e-05 0 -0 0</pose>
+        <mass>3.9265</mass>
+        <inertia>
+          <ixx>0.00689</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.00735</iyy>
+          <iyz>0</iyz>
+          <izz>0.00861</izz>
+        </inertia>
+      </inertial>
+      <!-- <collision name='R_Hip_roll_pitch_link_collision'>
+        <pose frame=''>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://rok3_model/meshes/R_Hip_roll_pitch_link.STL</uri>
+          </mesh>
+        </geometry>
+      </collision> -->
+      <visual name='R_Hip_roll_pitch_link_visual'>
+        <pose frame=''>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://rok3_model/meshes/R_Hip_roll_pitch_link.STL</uri>
+          </mesh>
+        </geometry>
+        <material>
+              <ambient>21 101 192 1</ambient>
+              <diffuse>1 1 1 1</diffuse>
+              <emissive>0 0 0 1</emissive>
+              <specular>0 0 0 0</specular>
+        </material>
+      </visual>
+    </link>
+    <joint name='R_Hip_roll_joint' type='revolute'>
+      <child>R_Hip_roll_pitch_link</child>
+      <parent>R_Hip_yaw_link</parent>
+      <axis>
+        <xyz>1 0 0</xyz>
+        <limit>
+          <lower>-3.141592*2</lower>
+          <upper>3.141592*2</upper>
+          <effort>-1</effort>
+          <velocity>-1</velocity>
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+        <use_parent_model_frame>1</use_parent_model_frame>
+      </axis>
+    </joint>
+    <link name='R_Thigh_link'>
+      <pose frame=''>0 -0.105 -0.1512 0 -0 0</pose>
+      <inertial>
+        <pose frame=''>0.01373 -0.0244 -0.22423 0 -0 0</pose>
+        <mass>4.9728</mass>
+        <inertia>
+          <ixx>0.07468</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.07322</iyy>
+          <iyz>0</iyz>
+          <izz>0.01579</izz>
+        </inertia>
+      </inertial>
+      <!-- <collision name='R_Thigh_link_collision'>
+        <pose frame=''>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://rok3_model/meshes/R_Thigh_link.STL</uri>
+          </mesh>
+        </geometry>
+      </collision> -->
+      <visual name='R_Thigh_link_visual'>
+        <pose frame=''>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://rok3_model/meshes/R_Thigh_link.STL</uri>
+          </mesh>
+        </geometry>
+        <material>
+              <ambient>0 0 0 1</ambient>
+              <diffuse>1 1 1 1</diffuse>
+              <emissive>0 0 0 1</emissive>
+              <specular>0 0 0 0</specular>
+        </material>
+      </visual>
+    </link>
+    <joint name='R_Hip_pitch_joint' type='revolute'>
+      <child>R_Thigh_link</child>
+      <parent>R_Hip_roll_pitch_link</parent>
+      <axis>
+        <xyz>0 1 0</xyz>
+        <limit>
+          <lower>-3.141592*2</lower>
+          <upper>3.141592*2</upper>
+          <effort>-1</effort>
+          <velocity>-1</velocity>
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+        <use_parent_model_frame>1</use_parent_model_frame>
+      </axis>
+    </joint>
+    <link name='R_Calf_link'>
+      <pose frame=''>0 -0.105 -0.5012 0 -0 0</pose>
+      <inertial>
+        <pose frame=''>0.01497 -0.0128 -0.18288 0 -0 0</pose>
+        <mass>3.378</mass>
+        <inertia>
+          <ixx>0.05941</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.05717</iyy>
+          <iyz>0</iyz>
+          <izz>0.00957</izz>
+        </inertia>
+      </inertial>
+      <!-- <collision name='R_Calf_link_collision'>
+        <pose frame=''>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://rok3_model/meshes/R_Calf_link.STL</uri>
+          </mesh>
+        </geometry>
+      </collision> -->
+      <visual name='R_Calf_link_visual'>
+        <pose frame=''>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://rok3_model/meshes/R_Calf_link.STL</uri>
+          </mesh>
+        </geometry>
+        <material>
+               <ambient>0 0 0 1</ambient>
+               <diffuse>1 1 1 1</diffuse>
+               <emissive>0 0 0 1</emissive>
+               <specular>0 0 0 0</specular>
+        </material>
+      </visual>
+    </link>
+    <joint name='R_Knee_joint' type='revolute'>
+      <child>R_Calf_link</child>
+      <parent>R_Thigh_link</parent>
+      <axis>
+        <xyz>0 1 0</xyz>
+        <limit>
+          <lower>-3.141592*2</lower>
+          <upper>3.141592*2</upper>
+          <effort>-1</effort>
+          <velocity>-1</velocity>
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+        <use_parent_model_frame>1</use_parent_model_frame>
+      </axis>
+    </joint>
+    <link name='R_Ankle_pitch_link'>
+      <pose frame=''>0 -0.1051 -0.8512 0 -0 0</pose>
+      <inertial>
+        <pose frame=''>0.01836 0.00287 0.00268 0 -0 0</pose>
+        <mass>1.5671</mass>
+        <inertia>
+          <ixx>0.00139</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.00331</iyy>
+          <iyz>0</iyz>
+          <izz>0.00315</izz>
+        </inertia>
+      </inertial>
+      <!-- <collision name='R_Ankle_pitch_link_collision'>
+        <pose frame=''>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://rok3_model/meshes/R_Ankle_pitch_link.STL</uri>
+          </mesh>
+        </geometry>
+      </collision> -->
+      <visual name='R_Ankle_pitch_link_visual'>
+        <pose frame=''>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://rok3_model/meshes/R_Ankle_pitch_link.STL</uri>
+          </mesh>
+        </geometry>
+        <material>
+              <ambient>21 101 192 1</ambient>
+              <diffuse>1 1 1 1</diffuse>
+              <emissive>0 0 0 1</emissive>
+              <specular>0 0 0 0</specular>
+        </material>
+      </visual>
+    </link>
+    <joint name='R_Ankle_pitch_joint' type='revolute'>
+      <child>R_Ankle_pitch_link</child>
+      <parent>R_Calf_link</parent>
+      <axis>
+        <xyz>0 1 0</xyz>
+        <limit>
+          <lower>-3.141592*2</lower>
+          <upper>3.141592*2</upper>
+          <effort>-1</effort>
+          <velocity>-1</velocity>
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+        <use_parent_model_frame>1</use_parent_model_frame>
+      </axis>
+    </joint>
+    <link name='R_Ankle_roll_link'>
+      <pose frame=''>0 -0.1051 -0.8512 0 -0 0</pose>
+      <inertial>
+        <pose frame=''>0.01905 0 -0.03706 0 -0 0</pose>
+        <mass>0.20333</mass>
+        <inertia>
+          <ixx>0.00011</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.00063</iyy>
+          <iyz>0</iyz>
+          <izz>0.00059</izz>
+        </inertia>
+      </inertial>
+      <!-- <collision name='R_Ankle_roll_link_collision'>
+        <pose frame=''>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://rok3_model/meshes/R_Ankle_roll_link.STL</uri>
+          </mesh>
+        </geometry>
+      </collision> -->
+<!--      <collision name='R_Ankle_roll_link_fixed_joint_lump__R_Foot_collision_1'>
+        <pose frame=''>0 0 -0.09 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://rok3_model/meshes/R_Foot.STL</uri>
+          </mesh>
+        </geometry>
+      </collision> -->
+      <visual name='R_Ankle_roll_link_visual'>
+        <pose frame=''>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://rok3_model/meshes/R_Ankle_roll_link.STL</uri>
+          </mesh>
+        </geometry>
+        <material>
+              <ambient>229 57 53 1</ambient>
+              <diffuse>1 1 1 1</diffuse>
+              <emissive>0 0 0 1</emissive>
+              <specular>0 0 0 0</specular>
+        </material>
+      </visual>
+<!--      <visual name='R_Ankle_roll_link_fixed_joint_lump__R_Foot_visual_1'>
+        <pose frame=''>0 0 -0.09 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://rok3_model/meshes/R_Foot.STL</uri>
+          </mesh>
+        </geometry>
+        <material>
+              <ambient>0 0 0 1</ambient>
+              <diffuse>1 1 1 1</diffuse>
+              <emissive>0 0 0 1</emissive>
+              <specular>0 0 0 0</specular>
+        </material>
+      </visual> -->
+    </link>
+    <joint name='R_Ankle_roll_joint' type='revolute'>
+      <child>R_Ankle_roll_link</child>
+      <parent>R_Ankle_pitch_link</parent>
+      <axis>
+        <xyz>1 0 0</xyz>
+        <limit>
+          <lower>-3.141592*2</lower>
+          <upper>3.141592*2</upper>
+          <effort>-1</effort>
+          <velocity>-1</velocity>
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+        <use_parent_model_frame>1</use_parent_model_frame>
+      </axis>
+    </joint>
+
+    <link name='R_Foot_Sole'>
+          <pose frame=''>0 -0.1051 -0.9412 0 -0 0</pose>
+          <inertial>
+            <pose frame=''>0 0.001 0.00861 0 -0 0</pose>
+            <mass>0.92659</mass>
+            <inertia>
+              <ixx>0.00107</ixx>
+              <ixy>0</ixy>
+              <ixz>0</ixz>
+              <iyy>0.00323</iyy>
+              <iyz>0</iyz>
+              <izz>0.00412</izz>
+            </inertia>
+          </inertial>
+           <collision name='R_Foot_Sole'>
+            <pose frame=''>0 0.001 -0.003 0 -0 0</pose>
+            <geometry>
+    	<box>
+    	<size>0.235 0.125 0.006</size>
+    	</box>
+    	<!--mesh>
+              <scale>1 1 1</scale>
+              <uri>model://rok3_model/meshes/R_Foot.STL</uri>
+            </mesh-->
+    	</geometry>
+            <surface>
+             <contact>
+              <ode>
+      	        <kp>10000000</kp>
+                <kd>10000</kd>
+                <max_vel>0.1</max_vel>
+                <min_depth>0.001</min_depth>
+              </ode>
+             </contact>
+            </surface>
+          </collision>
+          <visual name='R_Foot_Sole_visual'>
+            <pose frame=''>0 0 0 0 -0 0</pose>
+            <geometry>
+              <mesh>
+                <scale>1 1 1</scale>
+                <uri>model://rok3_model/meshes/R_Foot.STL</uri>
+              </mesh>
+            </geometry>
+    	<material>
+          <ambient>1 0.5 0.1 1</ambient>
+          <diffuse>0.7 0.7 0.7 1</diffuse>
+          <specular>0.01 0.01 0.01 1</specular>
+          <emissive>0 0 0 1</emissive>
+    	</material>
+          </visual>
+          <sensor name="R_Foot_contact" type='contact'>
+          <contact>
+           <collision>R_Foot_Sole</collision>
+          </contact>
+         </sensor>
+        </link>
+        <joint name="RS" type="fixed">
+          <child>R_Foot_Sole</child>
+          <parent>R_Ankle_roll_link</parent>
+          <sensor name="force_torque_right" type="force_torque">
+            <force_torque>
+              <frame>child</frame>
+              <measure_direction>child_to_parent</measure_direction>
+            </force_torque>
+          </sensor>
+        </joint>
+
+    <link name='Upper_body_link'>
+      <pose frame=''>-0.0305 0 0 0 -0 0</pose>
+      <inertial>
+        <pose frame=''>0.00349 0.0005 0.22547 0 -0 0</pose>
+        <mass>8.7701</mass>
+        <inertia>
+          <ixx>0.10602</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.09214</iyy>
+          <iyz>0</iyz>
+          <izz>0.08651</izz>
+        </inertia>
+      </inertial>
+      <!-- <collision name='Upper_body_link_collision'>
+        <pose frame=''>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://rok3_model/meshes/Upper_body_link.STL</uri>
+          </mesh>
+        </geometry>
+      </collision> -->
+      <visual name='Upper_body_link_visual'>
+        <pose frame=''>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://rok3_model/meshes/Upper_body_link.STL</uri>
+          </mesh>
+        </geometry>
+        <material>
+               <ambient>0 0 0 1</ambient>
+               <diffuse>1 1 1 1</diffuse>
+               <emissive>0 0 0 1</emissive>
+               <specular>0 0 0 0</specular>
+        </material>
+      </visual>
+    </link>
+    <joint name='torso_joint' type='revolute'>
+      <child>Upper_body_link</child>
+      <parent>base_link</parent>
+      <axis>
+        <xyz>0 0 1</xyz>
+        <limit>
+          <lower>-3.141592*2</lower>
+          <upper>3.141592*2</upper>
+          <effort>-1</effort>
+          <velocity>-1</velocity>
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+        <use_parent_model_frame>1</use_parent_model_frame>
+      </axis>
+    </joint>
+  </model>
+</sdf>

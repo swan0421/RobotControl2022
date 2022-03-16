@@ -1,0 +1,907 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by Stephen Brawner (brawner@gmail.com)
+     Commit Version: 1.6.0-4-g7f85cfe  Build Version: 1.6.7995.38578
+     For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
+<robot
+  name="rok3_model">
+  <link
+    name="base_link">
+    <inertial>
+      <origin
+        xyz="-0.00929 0 0.00778"
+        rpy="0 0 0" />
+      <mass
+        value="4.91195" />
+      <inertia
+        ixx="0.0365"
+        ixy="0"
+        ixz="0"
+        iyy="0.00772"
+        iyz="0"
+        izz="0.03493" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://rok3_model/meshes/base_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://rok3_model/meshes/base_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <link
+    name="Upper_body_link">
+    <inertial>
+      <origin
+        xyz="0.00349 0.0005 0.22547"
+        rpy="0 0 0" />
+      <mass
+        value="8.7701" />
+      <inertia
+        ixx="0.10602"
+        ixy="0"
+        ixz="0"
+        iyy="0.09214"
+        iyz="0"
+        izz="0.08651" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://rok3_model/meshes/Upper_body_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://rok3_model/meshes/Upper_body_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="torso_joint"
+    type="revolute">
+    <origin
+      xyz="-0.0305 0 0"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="Upper_body_link" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="L_Hip_yaw_link">
+    <inertial>
+      <origin
+        xyz="0.00818 0 0.05977"
+        rpy="0 0 0" />
+      <mass
+        value="0.52735" />
+      <inertia
+        ixx="0.00108"
+        ixy="0"
+        ixz="0"
+        iyy="0.0026"
+        iyz="0"
+        izz="0.00191" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://rok3_model/meshes/L_Hip_yaw_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://rok3_model/meshes/L_Hip_yaw_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="L_Hip_yaw_joint"
+    type="revolute">
+    <origin
+      xyz="0 0.105 -0.1512"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="L_Hip_yaw_link" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="L_Hip_roll_pitch_link">
+    <inertial>
+      <origin
+        xyz="0.008 0.01822 -1E-05"
+        rpy="0 0 0" />
+      <mass
+        value="3.9265" />
+      <inertia
+        ixx="0.00689"
+        ixy="0"
+        ixz="0"
+        iyy="0.00735"
+        iyz="0"
+        izz="0.00861" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://rok3_model/meshes/L_Hip_roll_pitch_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://rok3_model/meshes/L_Hip_roll_pitch_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="L_Hip_roll_joint"
+    type="revolute">
+    <origin
+      xyz="0 0 0"
+      rpy="0 0 0" />
+    <parent
+      link="L_Hip_yaw_link" />
+    <child
+      link="L_Hip_roll_pitch_link" />
+    <axis
+      xyz="1 0 0" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="L_Thigh_link">
+    <inertial>
+      <origin
+        xyz="0.01373 0.0244 -0.22423"
+        rpy="0 0 0" />
+      <mass
+        value="4.9728" />
+      <inertia
+        ixx="0.07468"
+        ixy="0"
+        ixz="0"
+        iyy="0.07322"
+        iyz="0"
+        izz="0.01579" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://rok3_model/meshes/L_Thigh_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://rok3_model/meshes/L_Thigh_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="L_Hip_pitch_joint"
+    type="revolute">
+    <origin
+      xyz="0 0 0"
+      rpy="0 0 0" />
+    <parent
+      link="L_Hip_roll_pitch_link" />
+    <child
+      link="L_Thigh_link" />
+    <axis
+      xyz="0 1 0" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="L_Calf_link">
+    <inertial>
+      <origin
+        xyz="0.01497 0.0128 -0.18288"
+        rpy="0 0 0" />
+      <mass
+        value="3.378" />
+      <inertia
+        ixx="0.05941"
+        ixy="0"
+        ixz="0"
+        iyy="0.05717"
+        iyz="0"
+        izz="0.00957" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://rok3_model/meshes/L_Calf_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://rok3_model/meshes/L_Calf_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="L_Knee_joint"
+    type="revolute">
+    <origin
+      xyz="0 0 -0.35"
+      rpy="0 0 0" />
+    <parent
+      link="L_Thigh_link" />
+    <child
+      link="L_Calf_link" />
+    <axis
+      xyz="0 1 0" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="L_Ankle_pitch_link">
+    <inertial>
+      <origin
+        xyz="0.01836 -0.00287 0.00268"
+        rpy="0 0 0" />
+      <mass
+        value="1.5671" />
+      <inertia
+        ixx="0.00139"
+        ixy="0"
+        ixz="0"
+        iyy="0.00331"
+        iyz="0"
+        izz="0.00315" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://rok3_model/meshes/L_Ankle_pitch_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://rok3_model/meshes/L_Ankle_pitch_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="L_Ankle_pitch_joint"
+    type="revolute">
+    <origin
+      xyz="0 0.0001 -0.35"
+      rpy="0 0 0" />
+    <parent
+      link="L_Calf_link" />
+    <child
+      link="L_Ankle_pitch_link" />
+    <axis
+      xyz="0 1 0" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="L_Ankle_roll_link">
+    <inertial>
+      <origin
+        xyz="0.01905 0 -0.03706"
+        rpy="0 0 0" />
+      <mass
+        value="0.20333" />
+      <inertia
+        ixx="0.00011"
+        ixy="0"
+        ixz="0"
+        iyy="0.00063"
+        iyz="0"
+        izz="0.00059" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://rok3_model/meshes/L_Ankle_roll_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://rok3_model/meshes/L_Ankle_roll_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="L_Ankle_roll_joint"
+    type="revolute">
+    <origin
+      xyz="0 0 0"
+      rpy="0 0 0" />
+    <parent
+      link="L_Ankle_pitch_link" />
+    <child
+      link="L_Ankle_roll_link" />
+    <axis
+      xyz="1 0 0" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="L_Foot">
+    <inertial>
+      <origin
+        xyz="0 -0.001 0.00861"
+        rpy="0 0 0" />
+      <mass
+        value="0.92659" />
+      <inertia
+        ixx="0.00107"
+        ixy="0"
+        ixz="0"
+        iyy="0.00323"
+        iyz="0"
+        izz="0.00412" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://rok3_model/meshes/L_Foot.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://rok3_model/meshes/L_Foot.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="L_Foot_joint"
+    type="fixed">
+    <origin
+      xyz="0 0 -0.09"
+      rpy="0 0 0" />
+    <parent
+      link="L_Ankle_roll_link" />
+    <child
+      link="L_Foot" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="R_Hip_yaw_link">
+    <inertial>
+      <origin
+        xyz="0.00818 0 0.05977"
+        rpy="0 0 0" />
+      <mass
+        value="0.52735" />
+      <inertia
+        ixx="0.00108"
+        ixy="0"
+        ixz="0"
+        iyy="0.0026"
+        iyz="0"
+        izz="0.00191" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://rok3_model/meshes/R_Hip_yaw_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://rok3_model/meshes/R_Hip_yaw_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="R_Hip_yaw_joint"
+    type="revolute">
+    <origin
+      xyz="0 -0.105 -0.1512"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="R_Hip_yaw_link" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="R_Hip_roll_pitch_link">
+    <inertial>
+      <origin
+        xyz="0.008 -0.01822 -1E-05"
+        rpy="0 0 0" />
+      <mass
+        value="3.9265" />
+      <inertia
+        ixx="0.00689"
+        ixy="0"
+        ixz="0"
+        iyy="0.00735"
+        iyz="0"
+        izz="0.00861" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://rok3_model/meshes/R_Hip_roll_pitch_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://rok3_model/meshes/R_Hip_roll_pitch_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="R_Hip_roll_joint"
+    type="revolute">
+    <origin
+      xyz="0 0 0"
+      rpy="0 0 0" />
+    <parent
+      link="R_Hip_yaw_link" />
+    <child
+      link="R_Hip_roll_pitch_link" />
+    <axis
+      xyz="1 0 0" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="R_Thigh_link">
+    <inertial>
+      <origin
+        xyz="0.01373 -0.0244 -0.22423"
+        rpy="0 0 0" />
+      <mass
+        value="4.9728" />
+      <inertia
+        ixx="0.07468"
+        ixy="0"
+        ixz="0"
+        iyy="0.07322"
+        iyz="0"
+        izz="0.01579" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://rok3_model/meshes/R_Thigh_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://rok3_model/meshes/R_Thigh_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="R_Hip_pitch_joint"
+    type="revolute">
+    <origin
+      xyz="0 0 0"
+      rpy="0 0 0" />
+    <parent
+      link="R_Hip_roll_pitch_link" />
+    <child
+      link="R_Thigh_link" />
+    <axis
+      xyz="0 1 0" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="R_Calf_link">
+    <inertial>
+      <origin
+        xyz="0.01497 -0.0128 -0.18288"
+        rpy="0 0 0" />
+      <mass
+        value="3.378" />
+      <inertia
+        ixx="0.05941"
+        ixy="0"
+        ixz="0"
+        iyy="0.05717"
+        iyz="0"
+        izz="0.00957" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://rok3_model/meshes/R_Calf_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://rok3_model/meshes/R_Calf_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="R_Knee_joint"
+    type="revolute">
+    <origin
+      xyz="0 0 -0.35"
+      rpy="0 0 0" />
+    <parent
+      link="R_Thigh_link" />
+    <child
+      link="R_Calf_link" />
+    <axis
+      xyz="0 1 0" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="R_Ankle_pitch_link">
+    <inertial>
+      <origin
+        xyz="0.01836 0.00287 0.00268"
+        rpy="0 0 0" />
+      <mass
+        value="1.5671" />
+      <inertia
+        ixx="0.00139"
+        ixy="0"
+        ixz="0"
+        iyy="0.00331"
+        iyz="0"
+        izz="0.00315" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://rok3_model/meshes/R_Ankle_pitch_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://rok3_model/meshes/R_Ankle_pitch_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="R_Ankle_pitch_joint"
+    type="revolute">
+    <origin
+      xyz="0 -0.0001 -0.35"
+      rpy="0 0 0" />
+    <parent
+      link="R_Calf_link" />
+    <child
+      link="R_Ankle_pitch_link" />
+    <axis
+      xyz="0 1 0" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="R_Ankle_roll_link">
+    <inertial>
+      <origin
+        xyz="0.01905 0 -0.03706"
+        rpy="0 0 0" />
+      <mass
+        value="0.20333" />
+      <inertia
+        ixx="0.00011"
+        ixy="0"
+        ixz="0"
+        iyy="0.00063"
+        iyz="0"
+        izz="0.00059" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://rok3_model/meshes/R_Ankle_roll_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://rok3_model/meshes/R_Ankle_roll_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="R_Ankle_roll_joint"
+    type="revolute">
+    <origin
+      xyz="0 0 0"
+      rpy="0 0 0" />
+    <parent
+      link="R_Ankle_pitch_link" />
+    <child
+      link="R_Ankle_roll_link" />
+    <axis
+      xyz="1 0 0" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="R_Foot">
+    <inertial>
+      <origin
+        xyz="0 0.001 0.00861"
+        rpy="0 0 0" />
+      <mass
+        value="0.92659" />
+      <inertia
+        ixx="0.00107"
+        ixy="0"
+        ixz="0"
+        iyy="0.00323"
+        iyz="0"
+        izz="0.00412" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://rok3_model/meshes/R_Foot.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://rok3_model/meshes/R_Foot.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="R_Foot_joint"
+    type="fixed">
+    <origin
+      xyz="0 0 -0.09"
+      rpy="0 0 0" />
+    <parent
+      link="R_Ankle_roll_link" />
+    <child
+      link="R_Foot" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+</robot>

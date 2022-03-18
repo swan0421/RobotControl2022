@@ -25,7 +25,7 @@
  
     <include>
       <uri>model://rok3_model</uri>
-      <pose frame=''>0 0 0.947 0 0 0</pose>
+      <pose frame=''>0 0 1.947 0 0 0</pose>
       <plugin name="rok3_plugin" filename="librok3_study_pkgs.so"/> 
     </include>
   </world>

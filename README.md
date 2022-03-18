@@ -19,36 +19,122 @@
 3. [Netbeans-IDE](https://netbeans.apache.org/download/index.html) install, link : https://netbeans.apache.org/download/index.html
 
 > **Java install before Netbeans install**
-> ``` js
-> sudo add-apt-repository ppa:webupd8team/java
+* terminal
+> ```
 > sudo apt update
 > sudo apt install openjdk-8-jdk
-> javac -version
+> java -version
 > ```
-
+---
 > **Netbeans-IDE install**
+##### **1. 기존 NetBeans가 설치되어 있는경우**
+###### ==(NetBeans가 설치되어 있지 않다면 2번으로 이동)==
+* terminal
+> ```js
+> cd /usr/local/netbeans-x.x
+> //기존 netbeans의 uninstall.sh가 있는 폴더로 이동. (x.x는 현재버전)
+> //경로가 다를 수 있으니 확인할 것
+>
+> sudo sh uninstall.sh
+> //uninstall 실행
 
->민호 재작성 요망 :
-현재, RCLAB은 Netbeans IDE-8.2를 쓰고 있지만, 8.2 ver는 인터넷 상에서 이제는 다운로드가 안되므로, https://netbeans.apache.org/download/index.html 에서 최신 버전 다운 및 적용 후 자세한 내용은 여기에 다시 정리 바람.
+##### **2. Apache NetBeans 13 IDE install Guide**
 
-4. [GitHub](https://github.com/)에 미리 가입한 상태면, 해당 패키지를 공동 작업하는데 있어 도움이됩니다. 따라서, 가입을 희망합니다. 또한, `Token password`를 발급받기 바랍니다.
+1. [NetBeans 13_linux install](https://www.apache.org/dyn/closer.cgi/netbeans/netbeans-installers/13/Apache-NetBeans-13-bin-linux-x64.sh) 링크로 접속 합니다.
+2. HTTP 하단의 링크를 클릭하여 .sh 파일을 다운로드 받습니다.  
+==(만약 다운로드가 되지 않는다면, 링크를 복사하여 **wget -c** 명령어로 직접 실행)==  
+* terminal
+>```
+>---example---
+>wget -c https://dlcdn.apache.org/...linux-x64.sh
+>```
+3. 다운로드된 파일에 실행권한을 부여하고, 실행합니다.
+* terminal
+>```
+>chmod +x Apache-NetBeans-13-bin-linux-x64.sh
+>
+>./Apache-NetBeans-13-bin-linux-x64.sh
+>```  
+##### **3.Apache NetBeans 13 Setting**
+1. 설치된 applications 에서 Apache NetBeans IDE 13을 실행합니다.  
+
+2. 상단 Menu의 Tools 항목 중 **Plugins**를 클릭합니다.
+
+3. Plugins창이 뜨면, Settings 카테고리로 들어가서, **NetBeans 8.2 Plugin Portal 의 Active**에 체크한 후, **Available Plugins** 카테고리로 들어가 **check for Newest** 를 클릭하여 업데이트를 진행해 줍니다.
+
+4. 업데이트를 진행 후 나타나는 c/c++ 에 install 을 체크하고 하단의 install 버튼을 클릭하여 설치를 진행합니다.  
+
+##### **4. Create New Project**
+1. 상단 Menu의 File 항목에서 New Project를 선택합니다.
+
+2. Choose Project Step  
+categories : **C/C++**  
+Projects : **C/C++ Project with Existing Sources**  
+==next==
+
+3. Select Mode Step  
+specify the folder : **/home/user_id/catkin_ws**  
+`(user_id 의 경우 Ubuntu 설치 시 사용자가 설정한 이름을 입력합니다.)`  
+Build Host : **localhost**  
+Tool Collection : **Default(GNU(GNU))**  
+Use Build Analyzer **Check**  
+Configuration Mode : **Custom**  
+==next==
+
+4. Pre-Build Action Step  
+**Pre-Build Step is Required uncheck**  
+==next==
+
+5. Build Actions Step  
+Working Directory : **/home/user_id/catkin_ws**  
+Clean Command : **devel/env.sh catkin_make clean**  
+Build Command : **devel/env.sh catkin_make**  
+Clean and Build after Finish **check**  
+==next==
+
+6. Source Files Step  
+Source FIle Folders : **/home/user_id/catkin_ws**  
+==next==
+
+7. Code Assistance Configuration Step  
+Automatic Configuration **check**  
+==next==
+
+8. Project Name and Location Step  
+Project Name : **catkin_ws**  
+Project Location : **/home/user_id/NetBeansProjects**  
+Project Folder : **/home/user_id/NetBeansProjects/catkin_ws**  
+Build Host : **localhost**  
+Tool Collection : **Default(GNU(GNU))**  
+==finish==
+---
+
+
+4. [GitHub](https://github.com/)에 미리 가입한 상태면, 해당 패키지를 공동 작업하는데 있어 도움이됩니다.  
+따라서, 가입을 희망합니다. 또한, `Token password`를 발급받기 바랍니다.
 
 ----
 ## Simulation Manual 
 ### 1.[Download](https://github.com/swan0421/RobotControl2022) and Setting RobotControl2022
 1. [RobotControl2022 Repository](https://github.com/swan0421/RobotControl2022)에 접속, link : https://github.com/swan0421/RobotControl2022
+
 2. 해당 Repository에 접속 후에, `Code ▼`라는 초록색 버튼이 있는데 클릭하여 URL 주소 (https:/~)을 복사하거나,`Download ZIP` 을 통해 해당 패키지를 다운 받습니다.
-3. NetBeans의 `Team` > `Git` > `clone` 을 누른후, `Repository URL`을 https://github.com/swan0421/RobotControl2022.git 으로 설정합니다. (만약, NetBeans에서 `Team` > `Git` > `clone` 경로가 보이지 않는 경우, NetBeans 화면 좌측에 있는 Projects 패널에서 catkin_ws 를 클릭하면 보이며, 위의 경로는 git에 연동되었을 때 활성화되는 경로이므로 처음 연동하는 것이라면, Team > git > clone으로 해도 됨) User에는 GitHUB의 user_name을 쓰고, Password에는 GitHUB의 `Token password`를 입력한 후 NEXT를 누릅니다.다
+
+3. NetBeans의 `Team` > `Git` > `clone` 을 누른후, `Repository URL`을 https://github.com/swan0421/RobotControl2022.git 으로 설정합니다.  
+(만약, NetBeans에서 `Team` > `Git` > `clone` 경로가 보이지 않는 경우, NetBeans 화면 좌측에 있는 Projects 패널에서 catkin_ws 를 클릭하면 보이며, 위의 경로는 git에 연동되었을 때 활성화되는 경로이므로 처음 연동하는 것이라면, Team > git > clone으로 해도 됨)  
+User에는 GitHUB의 user_name을 쓰고, Password에는 GitHUB의 `Token password`를 입력한 후 NEXT를 누릅니다.
+
 4. Select Remote Branches를 `master*` 로 선택하고 Next를 누릅니다.
 
 5. Parent Directory를 사용자의 `home/user_name/catkin_ws/src` 경로로 설정하고, Clone name을 사용자가 원하는 이름으로 설정하고, (참고 : Clone Name은 패키지에 관련된 이름으로 써서 다른 폴더들과 구별 지을 것) Checkout Branch는 `master*` 로 설정하고, Remote Name은 origin으로 설정한 후 Finish를 누릅니다.
 
 6. 사용자의 catkin_ws/src 위치에 Step5에서 설정한 Clone Name 을 갖는 폴더가 있는지 확인하고, 폴더 내부에 패키지 구성 파일들(world 폴더, src 폴더, launch 폴더 등)과 model 폴더(=`rok3_model`)이 있는지 확인합니다.
- 
 
-7. `rok3_model` 폴더를 `HOME/.gazebo/models/` 폴더로 가져와서 시뮬레이션을 위한 파일 셋팅을 마무리합니다. (`.gazebo` 폴더가 보이지 않으면, `Ctrl+H` 를 눌러서 폴더 숨김 해제를 할 것)
+7. `rok3_model` 폴더를 `HOME/.gazebo/models/` 폴더로 가져와서 시뮬레이션을 위한 파일 셋팅을 마무리합니다.  
+==(`.gazebo` 폴더가 보이지 않으면, `Ctrl+H` 를 눌러서 폴더 숨김 해제를 할 것)==
          
-8. 패키지를 컴파일하기 위해 Netbeans에서 터미널 창을 열거나 기본 터미널 창에서 `catkin_make`을 입력하여 컴파일을 진행합니다. (터미널 창이 안보인다면, Netbeans의 상단 `Winodow > IDE Tools > Termianl` 을 클릭)
+8. 패키지를 컴파일하기 위해 Netbeans에서 터미널 창을 열거나 기본 터미널 창에서 `catkin_make`을 입력하여 컴파일을 진행합니다. 
+==(터미널 창이 안보인다면, Netbeans의 상단 `Winodow > IDE Tools > Termianl` 을 클릭)==
 
 9. 만약, `catkin_make`가 안될 경우, section 2를 해보시기 바랍니다.
 ----

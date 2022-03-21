@@ -41,7 +41,9 @@
 ##### **2. Apache NetBeans 13 IDE install Guide**
 
 1. [NetBeans 13_linux install](https://www.apache.org/dyn/closer.cgi/netbeans/netbeans-installers/13/Apache-NetBeans-13-bin-linux-x64.sh) 링크로 접속 합니다.
+
 2. HTTP 하단의 링크를 클릭하여 .sh 파일을 다운로드 받습니다.  
+.sh 파일의 다운로드 경로는 `/home/user_name/Downloads` 로 설정합니다.  
 ==(만약 다운로드가 되지 않는다면, 링크를 복사하여 **wget -c** 명령어로 직접 실행)==  
 * terminal
 >```
@@ -70,48 +72,58 @@
 2. Choose Project Step  
 categories : **C/C++**  
 Projects : **C/C++ Project with Existing Sources**  
-==next==
+<img width="700" src="./NetBeans 13 Setting Guide/choose project.png" alt="Choose Project">  
+**`next`**
 
 3. Select Mode Step  
-specify the folder : **/home/user_id/catkin_ws**  
-`(user_id 의 경우 Ubuntu 설치 시 사용자가 설정한 이름을 입력합니다.)`  
+specify the folder : **/home/user_name/catkin_ws**  
+**`(user_name 의 경우 Ubuntu 설치 시 사용자가 설정한 이름을 입력합니다.)`**  
 Build Host : **localhost**  
 Tool Collection : **Default(GNU(GNU))**  
 Use Build Analyzer **Check**  
 Configuration Mode : **Custom**  
-==next==
+<img width="700" src="./NetBeans 13 Setting Guide/Select Mode.png" alt="Select Mode">  
+**`next`**
 
 4. Pre-Build Action Step  
 **Pre-Build Step is Required uncheck**  
-==next==
+<img width="700" src="./NetBeans 13 Setting Guide/Pre-Build Action.png" alt="Pre-Build Action">  
+**`next`**
 
 5. Build Actions Step  
-Working Directory : **/home/user_id/catkin_ws**  
+Working Directory : **/home/user_name/catkin_ws**  
 Clean Command : **devel/env.sh catkin_make clean**  
 Build Command : **devel/env.sh catkin_make**  
 Clean and Build after Finish **check**  
-==next==
+<img width="700" src="./NetBeans 13 Setting Guide/Build Actions.png" alt="Build Actions">  
+**`next`**
 
 6. Source Files Step  
-Source FIle Folders : **/home/user_id/catkin_ws**  
-==next==
+Source FIle Folders : **/home/user_name/catkin_ws**  
+<img width="700" src="./NetBeans 13 Setting Guide/Source Files.png" alt="Source Files">  
+**`next`**
 
 7. Code Assistance Configuration Step  
 Automatic Configuration **check**  
-==next==
+<img width="700" src="./NetBeans 13 Setting Guide/Code Assistance Configuration.png" alt="Code Assistance Configuration">  
+**`next`**
 
 8. Project Name and Location Step  
 Project Name : **catkin_ws**  
-Project Location : **/home/user_id/NetBeansProjects**  
-Project Folder : **/home/user_id/NetBeansProjects/catkin_ws**  
+Project Location : **/home/user_name/NetBeansProjects**  
+Project Folder : **/home/user_name/NetBeansProjects/catkin_ws**  
 Build Host : **localhost**  
 Tool Collection : **Default(GNU(GNU))**  
-==finish==
+<img width="700" src="./NetBeans 13 Setting Guide/Project Name and Location.png" alt="Project Name and Location">  
+**`finish`**
 ---
 
 
 4. [GitHub](https://github.com/)에 미리 가입한 상태면, 해당 패키지를 공동 작업하는데 있어 도움이됩니다.  
-따라서, 가입을 희망합니다. 또한, `Token password`를 발급받기 바랍니다.
+따라서, 가입을 희망합니다. 또한, `Token password`를 발급받기 바랍니다.  
+[토큰 발급 방법](https://hoohaha.tistory.com/37) 을 참고하시기 바랍니다.  
+*`토큰은 생성 이후에 다시 확인할 수 없으니, 따로 저장해두어야 합니다.`*
+
 
 ----
 ## Simulation Manual 
@@ -131,10 +143,10 @@ User에는 GitHUB의 user_name을 쓰고, Password에는 GitHUB의 `Token passwo
 6. 사용자의 catkin_ws/src 위치에 Step5에서 설정한 Clone Name 을 갖는 폴더가 있는지 확인하고, 폴더 내부에 패키지 구성 파일들(world 폴더, src 폴더, launch 폴더 등)과 model 폴더(=`rok3_model`)이 있는지 확인합니다.
 
 7. `rok3_model` 폴더를 `HOME/.gazebo/models/` 폴더로 가져와서 시뮬레이션을 위한 파일 셋팅을 마무리합니다.  
-==(`.gazebo` 폴더가 보이지 않으면, `Ctrl+H` 를 눌러서 폴더 숨김 해제를 할 것)==
+***(`.gazebo` 폴더가 보이지 않으면, `Ctrl+H` 를 눌러서 폴더 숨김 해제를 할 것)***
          
 8. 패키지를 컴파일하기 위해 Netbeans에서 터미널 창을 열거나 기본 터미널 창에서 `catkin_make`을 입력하여 컴파일을 진행합니다. 
-==(터미널 창이 안보인다면, Netbeans의 상단 `Winodow > IDE Tools > Termianl` 을 클릭)==
+***(터미널 창이 안보인다면, Netbeans의 상단 `Winodow > IDE Tools > Termianl` 을 클릭)***
 
 9. 만약, `catkin_make`가 안될 경우, section 2를 해보시기 바랍니다.
 ----
@@ -220,7 +232,7 @@ sudo make install
 </sdf>
 ```
 
-다음으로, `catkin_ws/src/RcLab-RoK3/worlds`폴더에 있는 `rok3.world`를 엽니다. 그리고 Fixed / Floating Dynamics을 위해 모델의 `<pose frame>`을 다음과 같이 셋팅 합니다.
+다음으로, `catkin_ws/src/RobotControl2022/worlds`폴더에 있는 `rok3.world`를 엽니다. 그리고 Fixed / Floating Dynamics을 위해 모델의 `<pose frame>`을 다음과 같이 셋팅 합니다.
 
 **Setting Floating Dynamics in `rok3.world`**
 ``` js

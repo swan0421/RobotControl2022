@@ -28,7 +28,7 @@
 ---
 > **Netbeans-IDE install**
 ##### **1. 기존 NetBeans가 설치되어 있는경우**
-###### ==(NetBeans가 설치되어 있지 않다면 2번으로 이동)==
+###### *`(NetBeans가 설치되어 있지 않다면 2번으로 이동)`*
 * terminal
 > ```js
 > cd /usr/local/netbeans-x.x
@@ -44,7 +44,7 @@
 
 2. HTTP 하단의 링크를 클릭하여 .sh 파일을 다운로드 받습니다.  
 .sh 파일의 다운로드 경로는 `/home/user_name/Downloads` 로 설정합니다.  
-==(만약 다운로드가 되지 않는다면, 링크를 복사하여 **wget -c** 명령어로 직접 실행)==  
+*`(만약 다운로드가 되지 않는다면, 링크를 복사하여 **wget -c** 명령어로 직접 실행)`*  
 * terminal
 >```
 >---example---
@@ -73,7 +73,7 @@
 categories : **C/C++**  
 Projects : **C/C++ Project with Existing Sources**  
 <img width="700" src="./NetBeans 13 Setting Guide/choose project.png" alt="Choose Project">  
-**`next`**
+`next`  
 
 3. Select Mode Step  
 specify the folder : **/home/user_name/catkin_ws**  
@@ -83,12 +83,12 @@ Tool Collection : **Default(GNU(GNU))**
 Use Build Analyzer **Check**  
 Configuration Mode : **Custom**  
 <img width="700" src="./NetBeans 13 Setting Guide/Select Mode.png" alt="Select Mode">  
-**`next`**
+`next`  
 
 4. Pre-Build Action Step  
 **Pre-Build Step is Required uncheck**  
 <img width="700" src="./NetBeans 13 Setting Guide/Pre-Build Action.png" alt="Pre-Build Action">  
-**`next`**
+`next`  
 
 5. Build Actions Step  
 Working Directory : **/home/user_name/catkin_ws**  
@@ -96,17 +96,17 @@ Clean Command : **devel/env.sh catkin_make clean**
 Build Command : **devel/env.sh catkin_make**  
 Clean and Build after Finish **check**  
 <img width="700" src="./NetBeans 13 Setting Guide/Build Actions.png" alt="Build Actions">  
-**`next`**
+`next`  
 
 6. Source Files Step  
 Source FIle Folders : **/home/user_name/catkin_ws**  
 <img width="700" src="./NetBeans 13 Setting Guide/Source Files.png" alt="Source Files">  
-**`next`**
+`next`  
 
 7. Code Assistance Configuration Step  
 Automatic Configuration **check**  
 <img width="700" src="./NetBeans 13 Setting Guide/Code Assistance Configuration.png" alt="Code Assistance Configuration">  
-**`next`**
+`next`  
 
 8. Project Name and Location Step  
 Project Name : **catkin_ws**  
@@ -115,8 +115,8 @@ Project Folder : **/home/user_name/NetBeansProjects/catkin_ws**
 Build Host : **localhost**  
 Tool Collection : **Default(GNU(GNU))**  
 <img width="700" src="./NetBeans 13 Setting Guide/Project Name and Location.png" alt="Project Name and Location">  
-**`finish`**
----
+*`finish`*  
+----
 
 
 4. [GitHub](https://github.com/)에 미리 가입한 상태면, 해당 패키지를 공동 작업하는데 있어 도움이됩니다.  
@@ -274,7 +274,7 @@ sudo make install
 * `rok3_plugin.cc`는 Gazebo main code 이며, `/catkin_ws/src/RcLab-RoK3/src`에 있습니다.
 * **그리고, `rok3_plugin.cc`에서 사용자는 반드시 `Load(physics::ModelPtr _model, sdf::ElementPtr /*_sdf*/)`함수에서, 아래 코드 예시와 같이 `Addons::URDFReadFromFile()` 함수 안에 적용되어 있는 `rok3_model.urdf`의 경로를 확인해주시고, 틀린다면 바로잡아주시기 바랍니다.**
 
-* **`rok3_model.urdf`는 `home/.gazebo/models//rok3_model/urdf` 폴더에 있으며, 파일 속성 확인을 통해 정확한 경로 확인하시기 바랍니다.**
+* **`rok3_model.urdf`는 `home/.gazebo/models/rok3_model/urdf` 폴더에 있으며, 파일 속성 확인을 통해 정확한 경로 확인하시기 바랍니다.**
 
 **In `rok3_plugin.cc`**
 ``` js

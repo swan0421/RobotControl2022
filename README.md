@@ -73,7 +73,8 @@
 categories : **C/C++**  
 Projects : **C/C++ Project with Existing Sources**  
 <img width="700" src="./NetBeans 13 Setting Guide/choose project.png" alt="Choose Project">  
-    *`next`*
+     
+`next`
 
 3. Select Mode Step  
 specify the folder : **/home/user_name/catkin_ws**  
@@ -83,12 +84,14 @@ Tool Collection : **Default(GNU(GNU))**
 Use Build Analyzer **Check**  
 Configuration Mode : **Custom**  
 <img width="700" src="./NetBeans 13 Setting Guide/Select Mode.png" alt="Select Mode">  
-    *`next`*
+    
+`next`
 
 4. Pre-Build Action Step  
 **Pre-Build Step is Required uncheck**  
 <img width="700" src="./NetBeans 13 Setting Guide/Pre-Build Action.png" alt="Pre-Build Action">  
-    *`next`*
+    
+`next`
 
 5. Build Actions Step  
 Working Directory : **/home/user_name/catkin_ws**  
@@ -96,17 +99,20 @@ Clean Command : **devel/env.sh catkin_make clean**
 Build Command : **devel/env.sh catkin_make**  
 Clean and Build after Finish **check**  
 <img width="700" src="./NetBeans 13 Setting Guide/Build Actions.png" alt="Build Actions">  
-    *`next`*
+    
+`next`
 
 6. Source Files Step  
 Source FIle Folders : **/home/user_name/catkin_ws**  
 <img width="700" src="./NetBeans 13 Setting Guide/Source Files.png" alt="Source Files">  
-    *`next`*
+    
+`next`
 
 7. Code Assistance Configuration Step  
 Automatic Configuration **check**  
 <img width="700" src="./NetBeans 13 Setting Guide/Code Assistance Configuration.png" alt="Code Assistance Configuration">  
-    *`next`*
+    
+`next`
 
 8. Project Name and Location Step  
 Project Name : **catkin_ws**  
@@ -115,7 +121,9 @@ Project Folder : **/home/user_name/NetBeansProjects/catkin_ws**
 Build Host : **localhost**  
 Tool Collection : **Default(GNU(GNU))**  
 <img width="700" src="./NetBeans 13 Setting Guide/Project Name and Location.png" alt="Project Name and Location">  
-    *`finish`*
+    
+`하단의 빨간색 경고는 이미 해당 폴더가 이미 만들어져 있다는 경고이므로, 처음 세팅할 경우에는 등장하지 않습니다.`  
+`finish`
 
 ----
 

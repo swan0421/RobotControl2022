@@ -273,7 +273,7 @@
       </axis>
     </joint>
     <link name='L_Ankle_pitch_link'>
-      <pose frame=''>0 0.1051 -0.8512 0 -0 0</pose>
+      <pose frame=''>0 0.104 -0.8512 0 -0 0</pose>
       <inertial>
         <pose frame=''>0.01836 -0.00287 0.00268 0 -0 0</pose>
         <mass>1.5671</mass>
@@ -330,7 +330,7 @@
       </axis>
     </joint>
     <link name='L_Ankle_roll_link'>
-      <pose frame=''>0 0.1051 -0.8512 0 -0 0</pose>
+      <pose frame=''>0 0.104 -0.8512 0 -0 0</pose>
       <inertial>
         <pose frame=''>0.01905 0 -0.03706 0 -0 0</pose>
         <mass>0.20333</mass>
@@ -414,7 +414,7 @@
     </joint>
     <!-- Make L_FOOT_Sole-->
     <link name='L_Foot_Sole'>
-          <pose frame=''>0 0.1051 -0.9412 0 -0 0</pose>
+          <pose frame=''>0 0.105 -0.9412 0 -0 0</pose>
           <inertial>
             <pose frame=''>0 -0.001 0.00861 0 -0 0</pose>
             <mass>0.92659</mass>
@@ -710,7 +710,7 @@
       </axis>
     </joint>
     <link name='R_Ankle_pitch_link'>
-      <pose frame=''>0 -0.1051 -0.8512 0 -0 0</pose>
+      <pose frame=''>0 -0.104 -0.8512 0 -0 0</pose>
       <inertial>
         <pose frame=''>0.01836 0.00287 0.00268 0 -0 0</pose>
         <mass>1.5671</mass>
@@ -767,7 +767,7 @@
       </axis>
     </joint>
     <link name='R_Ankle_roll_link'>
-      <pose frame=''>0 -0.1051 -0.8512 0 -0 0</pose>
+      <pose frame=''>0 -0.104 -0.8512 0 -0 0</pose>
       <inertial>
         <pose frame=''>0.01905 0 -0.03706 0 -0 0</pose>
         <mass>0.20333</mass>
@@ -849,7 +849,7 @@
     </joint>
 
     <link name='R_Foot_Sole'>
-          <pose frame=''>0 -0.1051 -0.9412 0 -0 0</pose>
+          <pose frame=''>0 -0.105 -0.9412 0 -0 0</pose>
           <inertial>
             <pose frame=''>0 0.001 0.00861 0 -0 0</pose>
             <mass>0.92659</mass>

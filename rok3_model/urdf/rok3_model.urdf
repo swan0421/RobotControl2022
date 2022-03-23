@@ -378,7 +378,7 @@
     name="L_Ankle_pitch_joint"
     type="revolute">
     <origin
-      xyz="0 0.0001 -0.35"
+      xyz="0 -0.001 -0.35"
       rpy="0 0 0" />
     <parent
       link="L_Calf_link" />
@@ -494,7 +494,7 @@
     name="L_Foot_joint"
     type="fixed">
     <origin
-      xyz="0 0 -0.09"
+      xyz="0 0.001 -0.09"
       rpy="0 0 0" />
     <parent
       link="L_Ankle_roll_link" />
@@ -779,7 +779,7 @@
     name="R_Ankle_pitch_joint"
     type="revolute">
     <origin
-      xyz="0 -0.0001 -0.35"
+      xyz="0 0.001 -0.35"
       rpy="0 0 0" />
     <parent
       link="R_Calf_link" />
@@ -895,7 +895,7 @@
     name="R_Foot_joint"
     type="fixed">
     <origin
-      xyz="0 0 -0.09"
+      xyz="0 -0.001 -0.09"
       rpy="0 0 0" />
     <parent
       link="R_Ankle_roll_link" />

@@ -335,4 +335,58 @@ catkin_make
 roslaunch rok3_study_pkgs rok3.launch
 ```
 
+## 1. 실습 1 : 3-Link Planar Arm의 Forward Kinematics
+
+* void Practice() 함수 만들기
+```c
+void Practice()
+```
+* Practice() 함수안에 matrix 생성 및 터미널창에 인쇄하기
+* cout 사용
+~~~c
+std::cout << "C_IE = " << C_IE << std::endl;
+~~~
+* Load 함수 첫줄에 Practice() 함수 사용
+* 3-link planar arm를 위한 Homogeneous Transformation Matrix 만들기
+* 모든 링크의 길이는 1m로 가정
+~~~c
+MatrixXd getTransformI0()
+MatrixXd jointToTransform01(VectorXd q)
+MatrixXd jointToTransform12(VectorXd q)
+MatrixXd jointToTransform23(VectorXd q)
+MatrixXd getTransform3E()
+~~~
+* Forward Kinematics 만들기
+~~~c
+VectorXd jointToPosition(VectorXd q)
+MatrixXd jointToRotMat(VectorXd q)
+VectorXd rotToEuler(MatrixXd rotMat)
+~~~
+
+## 2. 실습 2 : RoK-3의 Forward Kinematics
+
+* Homogeneous Transformation Matrix 만들기
+~~~c
+MatrixXd getTransformI0()
+MatrixXd jointToTransform01(VectorXd q)
+MatrixXd jointToTransform12(VectorXd q)
+MatrixXd jointToTransform23(VectorXd q)
+MatrixXd jointToTransform34(VectorXd q)
+MatrixXd jointToTransform45(VectorXd q)
+MatrixXd jointToTransform56(VectorXd q)
+MatrixXd getTransform6E()
+~~~
+* Forward Kinematics 만들기
+~~~c
+VectorXd jointToPosition(VectorXd q)
+MatrixXd jointToRotMat(VectorXd q)
+VectorXd rotToEuler(MatrixXd rotMat)
+~~~
+* q=[10;20;30;40;50;60] 일때, End-effector의 position과 Rotation Matrix 구하기
+* 이때, Euler Angle 구하기
+
+### 제출자료
+1. source 코드
+2. 출력된 결과물 capture 파일
+
 

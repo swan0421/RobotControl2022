@@ -363,8 +363,8 @@ MatrixXd jointToRotMat(VectorXd q)
 VectorXd rotToEuler(MatrixXd rotMat)
 ~~~
 
-## 2. 실습 2 : RoK-3의 Forward Kinematics
-
+## 2. 실습 2 : RoK-3의 Forward Kinematics  
+<img width="700" src="./RoK-3_img/RoK-3 Frame.jpg" alt="rok-3 frame">  
 * Homogeneous Transformation Matrix 만들기
 ~~~c
 MatrixXd getTransformI0()

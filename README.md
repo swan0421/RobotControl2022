@@ -294,7 +294,7 @@ sudo make install
 
 
 * #### Check `model.urdf` file path for using RBDL in `rok3_plugin.cc`
-* `rok3_plugin.cc`는 Gazebo main code 이며, `/catkin_ws/src/RcLab-RoK3/src`에 있습니다.
+* `rok3_plugin.cc`는 Gazebo main code 이며, `/catkin_ws/src/RobotControl2022/src`에 있습니다.
 * **그리고, `rok3_plugin.cc`에서 사용자는 반드시 `Load(physics::ModelPtr _model, sdf::ElementPtr /*_sdf*/)`함수에서, 아래 코드 예시와 같이 `Addons::URDFReadFromFile()` 함수 안에 적용되어 있는 `rok3_model.urdf`의 경로를 확인해주시고, 틀린다면 바로잡아주시기 바랍니다.**
 
 * **`rok3_model.urdf`는 `home/.gazebo/models/rok3_model/urdf` 폴더에 있으며, 파일 속성 확인을 통해 정확한 경로 확인하시기 바랍니다.**

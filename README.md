@@ -165,9 +165,10 @@ User에는 GitHUB의 user_name을 쓰고, Password에는 GitHUB의 `Token passwo
 7. 사용자의 catkin_ws/src 위치에 Step5에서 설정한 Clone Name 을 갖는 폴더가 있는지 확인하고, 폴더 내부에 패키지 구성 파일들(world 폴더, src 폴더, launch 폴더 등)과 model 폴더(=`rok3_model`)이 있는지 확인합니다.
 
 8. `rok3_model` 폴더를 `HOME/.gazebo/models/` 폴더로 가져와서 시뮬레이션을 위한 파일 셋팅을 마무리합니다.  
-***(`.gazebo` 폴더가 보이지 않으면, `Ctrl+H` 를 눌러서 폴더 숨김 해제를 할 것)***
+***(`.gazebo` 폴더가 보이지 않으면,  Home 폴더에서, `Ctrl+H` 를 눌러서 폴더 숨김 해제를 할 것)***  
+***(Gazebo를 실행한 적이 없는 경우, 숨김해제를 하여도 폴더가 보이지 않을 수 있음. Terminal 에서 `gazebo`를 입력하여 한번 실행해준 후 다시 확인할 것)***
          
-9. 패키지를 컴파일하기 위해 Netbeans에서 터미널 창을 열거나 기본 터미널 창에서 `catkin_make`을 입력하여 컴파일을 진행합니다. 
+9. 패키지를 컴파일하기 위해 Netbeans에서 터미널 창을 열거나 기본 터미널 창에서 `cd ~/catkin_ws && catkin_make`을 입력하여 컴파일을 진행합니다. 
 ***(터미널 창이 안보인다면, Netbeans의 상단 `Winodow > IDE Tools > Termianl` 을 클릭)***
 
 10. 만약, `catkin_make`가 안될 경우, section 2를 해보시기 바랍니다.
@@ -205,6 +206,10 @@ IF (DEFINED ENV{ROS_ROOT})
 2. RBDL make & install (**build 폴더가 존재할 경우, 삭제**)
 RBDL 폴더에서 터미널 창을 켜고 아래의 명령어를 입력함으로써, RBDL 재설치를 끝냅니다.
 ``` js
+RBDL 폴더 -> 오른쪽 마우스 클릭 -> Open in Terminal
+또는
+cd catkin_ws/src/RobotControl2022/src/RBDL
+
 mkdir build 
 cd build/ 
 cmake -D CMAKE_BUILD_TYPE=Release ../
@@ -212,7 +217,7 @@ cmake -D RBDL_BUILD_ADDON_URDFREADER=true ../
 make 
 sudo make install
 ```
-3. 그리고 다시 패키지를 컴파일하기 위해 Netbeans에서 터미널 창을 열거나 기본 터미널 창에서 `catkin_make`을 입력하여 컴파일을 진행합니다.
+3. 그리고 다시 패키지를 컴파일하기 위해 Netbeans에서 터미널 창을 열거나 기본 터미널 창에서 `cd ~/catkin_ws && catkin_make`을 입력하여 컴파일을 진행합니다.
 ----
 
 ### 3.How to run RobotControl2022 package
@@ -297,7 +302,8 @@ sudo make install
 * `rok3_plugin.cc`는 Gazebo main code 이며, `/catkin_ws/src/RobotControl2022/src`에 있습니다.
 * **그리고, `rok3_plugin.cc`에서 사용자는 반드시 `Load(physics::ModelPtr _model, sdf::ElementPtr /*_sdf*/)`함수에서, 아래 코드 예시와 같이 `Addons::URDFReadFromFile()` 함수 안에 적용되어 있는 `rok3_model.urdf`의 경로를 확인해주시고, 틀린다면 바로잡아주시기 바랍니다.**
 
-* **`rok3_model.urdf`는 `home/.gazebo/models/rok3_model/urdf` 폴더에 있으며, 파일 속성 확인을 통해 정확한 경로 확인하시기 바랍니다.**
+* **`rok3_model.urdf`는 `home/.gazebo/models/rok3_model/urdf` 폴더에 있으며, 파일 속성 확인을 통해 정확한 경로 확인하시기 바랍니다.**  
+`rok3_model.sdf` 파일 오른쪽 클릭 -> `Properties` -> `Location` 확인
 
 **In `rok3_plugin.cc`**
 ``` js
@@ -341,8 +347,9 @@ void gazebo::rok3_plugin::Load(physics::ModelPtr _model, sdf::ElementPtr /*_sdf*
 **모든 준비 과정이 끝나면, `catkin_make`을 입력하여 컴파일을 진행합니다.**
 
 ```
-catkin_make
+cd ~/catkin_ws && catkin_make
 ```
+
 **최종적으로, 다음과 같은 명령어를 통해 시뮬레이션 실행**
 
 ```

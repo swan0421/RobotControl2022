@@ -381,7 +381,7 @@ MatrixXd getTransform3E()
 ~~~c
 VectorXd jointToPosition(VectorXd q)
 MatrixXd jointToRotMat(VectorXd q)
-VectorXd rotToEuler(MatrixXd rotMat)
+VectorXd rotToEuler(MatrixXd rotMat)	// EulerZYX
 ~~~
 
 ## 2. 실습 2 : RoK-3의 Forward Kinematics  

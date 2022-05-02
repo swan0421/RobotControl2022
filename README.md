@@ -413,7 +413,7 @@ VectorXd rotToEuler(MatrixXd rotMat)
 2. 출력된 결과물 capture 파일
 
 
-## 3. 실습 3 : RoK-3의 Differential Kinematics  
+## 3. 실습 3 : RoK-3의 Geometric Jacobian
 
 * jointToPosJac 함수 만들기
 ~~~c
@@ -536,27 +536,62 @@ MatrixXd jointToRotJac(VectorXd q)
 1. source 코드
 2. 출력된 결과물 capture 파일
 
-## 실습 4.
 
-* Matrix Pseudo-Inversion
+## 실습 4 : RoK-3의 Pseudo-Inverse 함수와 rotTatToRotVec 함수 만들리
+
+* pseudoInverseMat 함수 만들기
 ~~~c
 MatrixXd pseudoInverseMat(MatrixXd A, double lambda)
 {
-	// Input: Any m-by-n matrix
-	// Output: An n-by-m pseudo-inverse of the input according to the Moore-Pensore formula
-	MatrixXd pinvA;
+    // Input: Any m-by-n matrix
+    // Output: An n-by-m pseudo-inverse of the input according to the Moore-Penrose formula
+    MatrixXd pinvA;
 
 
 
-	return pinvA;
+
+
+    return pinvA;
 }
-~~~
+~~~    
 
-
-## 4. 실습 4 : RoK-3의 Iterative Inverse Kinematics  
-
-* Geomatric Jacobian 만들기
+* rotMatToRotVec 함수 만들기
+* rotation matrix를 입력으로 받아서 rotation vector를 내보내는 함수
 ~~~c
-MatrixXd jointToPosJac(VectorXd q)
-MatrixXd jointToRotJac(VectorXd q)
-~~~
+VectorXd rotMatToRotVec(MatrixXd C)
+{
+    // Input: a rotation matrix C
+    // Output: the rotational vector which describes the rotation C
+    Vector3d phi,n;
+    double th;
+    
+    
+    if(fabs(th)<0.001){
+         n << 0,0,0;
+    }
+    else{
+
+    }
+        
+    phi = th*n;
+    
+   
+    return phi;
+}
+~~~    
+
+### 과제
+* q=[10;20;30;40;50;60] 일때, Jacobian의 pseudoInverse 구하기
+~~~c
+pinvJ = pseudoInverseMat(J);
+~~~    
+
+* q_des=[10;20;30;40;50;60], q_init=0.5q_des 일때, C_err(dph)=C_des*C_init.transpose() 구하기
+* rotMatToRotVec 함수로 dph구하기
+~~~c
+dph = rotMatToRotVec(C_err);
+~~~    
+
+### 제출자료
+1. source 코드
+2. 출력된 결과물 capture 파일

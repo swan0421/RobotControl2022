@@ -418,4 +418,19 @@ VectorXd rotToEuler(MatrixXd rotMat)
 * Geomatric Jacobian 만들기
 ~~~c
 MatrixXd jointToPosJac(VectorXd q)
+MatrixXd jointToRotJac(VectorXd q)
+~~~
+
+* Matrix Pseudo-Inversion
+~~~c
+MatrixXd pseudoInverseMat(MatrixXd A, double lambda)
+{
+	// Input: Any m-by-n matrix
+	// Output: An n-by-m pseudo-inverse of the input according to the Moore-Pensore formula
+	MatrixXd pinvA;
+
+
+
+	return pinvA;
+}
 ~~~

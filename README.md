@@ -555,8 +555,7 @@ MatrixXd pseudoInverseMat(MatrixXd A, double lambda)
 }
 ~~~    
 
-* rotMatToRotVec 함수 만들기
-* rotation matrix를 입력으로 받아서 rotation vector를 내보내는 함수
+* rotMatToRotVec 함수 만들기 : rotation matrix를 입력으로 받아서 rotation vector를 내보내는 함수
 ~~~c
 VectorXd rotMatToRotVec(MatrixXd C)
 {
@@ -595,3 +594,118 @@ dph = rotMatToRotVec(C_err);
 ### 제출자료
 1. source 코드
 2. 출력된 결과물 capture 파일
+
+
+
+## 5. 실습 5 : RoK-3의 Numerical Inverse Kinematics
+
+* inverseKinematics 함수 만들기
+~~~c
+VectorXd inverseKinematics(Vector3d r_des, MatrixXd C_des, VectorXd q0, double tol)
+{
+    // Input: desired end-effector position, desired end-effector orientation, initial guess for joint angles, threshold for the stopping-criterion
+    // Output: joint angles which match desired end-effector position and orientation
+    double num_it;
+    MatrixXd J_P(6,6), J_R(6,6), J(6,6), pinvJ(6,6), C_err(3,3), C_IE(3,3);
+    VectorXd q(6),dq(6),dXe(6);
+    Vector3d dr(3), dph(3);
+    double lambda;
+    
+    //* Set maximum number of iterations
+    double max_it = 200;
+    
+    //* Initialize the solution with the initial guess
+    q=q0;
+    C_IE = ...;
+    C_err = ...;
+    
+    //* Damping factor
+    lambda = 0.001;
+    
+    //* Initialize error
+    dr = ... ;
+    dph = ... ;
+    dXe << dr(0), dr(1), dr(2), dph(0), dph(1), dph(2);
+    
+    ////////////////////////////////////////////////
+    //** Iterative inverse kinematics
+    ////////////////////////////////////////////////
+    
+    //* Iterate until terminating condition
+    while (num_it<max_it && dXe.norm()>tol)
+    {
+        
+        //Compute Inverse Jacobian
+        J_P = ...;
+        J_R = ...;
+
+        J.block(0,0,3,6) = J_P;
+        J.block(3,0,3,6) = J_R; // Geometric Jacobian
+        
+        // Convert to Geometric Jacobian to Analytic Jacobian
+        dq = pseudoInverseMat(J,lambda)*dXe;
+        
+        // Update law
+        q += 0.5*dq;
+        
+        // Update error
+        C_IE = ...;
+        C_err = ...;
+        
+        dr = ...;
+        dph = ...;
+        dXe << dr(0), dr(1), dr(2), dph(0), dph(1), dph(2);
+                   
+        num_it++;
+    }
+    std::cout << "iteration: " << num_it << ", value: " << q << std::endl;
+    
+    return q;
+}
+~~~
+
+### 과제
+* q=[10;20;30;40;50;60] 일때, 이 관절각도에 해당하는 end-effoctor의 값을 r_des와 C_des로 설정하고,
+* r_des와 C_des에 대한 joint angle 구하기
+
+~~~c
+void Practice()
+{
+        ...
+        // q = [10;20;30;40;50;60]*pi/180;
+        r_des = jointToPostion(q);
+        C_des = jointToRotMat(q);
+        
+        q_cal = inverseKinematics(r_des, C_des, q*0.5, 0.001);
+}
+~~~  
+
+### 제출자료
+1. source 코드
+2. 출력된 결과물 capture 파일
+
+
+
+
+## 6. 실습 6 : RoK-3의 Motion Control
+
+* 1-cos 함수로 trajectory 생성하기
+
+~~~c
+double func_1_cos(double t, double, init, double final, double T)
+{
+        double des;
+        
+        ...
+        
+        return des;
+}
+~~~  
+
+
+### 과제
+1. 5초동안, z방향으로 0.2m 이동하기
+2. 5초동안 0.2m 다리들기, 5초동안 0.2m 다리내리기
+3. 5초동안 0.2m 다리들기, 5초동안, y축으로 90ㄷ 회전하기
+
+

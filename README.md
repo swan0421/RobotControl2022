@@ -415,3 +415,7 @@ VectorXd rotToEuler(MatrixXd rotMat)
 
 ## 3. 실습 3 : RoK-3의 Differential Kinematics  
 
+* Geomatric Jacobian 만들기
+* ~~~c
+* MatrixXd jointToPosJac(VectorXd q)
+* ~~~

@@ -413,3 +413,5 @@ VectorXd rotToEuler(MatrixXd rotMat)
 2. 출력된 결과물 capture 파일
 
 
+## 3. 실습 3 : RoK-3의 Differential Kinematics  
+

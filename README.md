@@ -593,7 +593,7 @@ dph = rotMatToRotVec(C_err);
 
 ### 제출자료
 1. source 코드
-2. 출력된 결과물 capture 파일
+2. 출력된 결과물 capture 파일 => dph = [0.00;1.14;-0.19]
 
 
 
@@ -664,7 +664,7 @@ VectorXd inverseKinematics(Vector3d r_des, MatrixXd C_des, VectorXd q0, double t
 }
 ~~~
 
-### 과제
+### 과제 1
 * q=[10;20;30;40;50;60] 일때, 이 관절각도에 해당하는 end-effoctor의 값을 r_des와 C_des로 설정하고,
 * r_des와 C_des에 대한 joint angle 구하기
 
@@ -684,7 +684,10 @@ void Practice()
 1. source 코드
 2. 출력된 결과물 capture 파일
 
-
+### 과제 2
+* Desired Pos = [0;0.105;-0.55] & Desired Orientation = Base
+* Result = [0;0;-63.756;127.512;-63.756]
+* 
 
 
 ## 6. 실습 6 : RoK-3의 Motion Control

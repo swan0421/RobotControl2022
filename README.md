@@ -712,3 +712,13 @@ double func_1_cos(double t, double, init, double final, double T)
 3. 5초동안 0.2m 다리들기, 5초동안, z축으로 90도 회전하기 in Cartesian Coordinates
 
 
+## 7. 실습 7 : Static walking in the air
+
+* 1. 5초동안, Walk ready 자세 만들기 (Desired Pos = [0;0.105;-0.55] & Desired Orientation = Base)
+* 2. 오른발 지지하며, 왼발 들기
+* 3. 두발 지지
+* 4. 왼발 지지하며, 오른발 들기
+* 5. 두발 지지
+
+### 과제
+0. 땅에서 실습 7 수행하기

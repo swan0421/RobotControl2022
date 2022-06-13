@@ -714,11 +714,13 @@ double func_1_cos(double t, double, init, double final, double T)
 
 ## 7. 실습 7 : Static walking in the air (2-step walking)
 
-1. 5초동안, Walk ready 자세 만들기 (Desired Pos = [0;0.105;-0.55] & Desired Orientation = Base) (Joint Coordinates)
-2. 오른발 지지하며, 왼발 들기 (Cartesian Coordinates)
-3. 두발 지지 (Cartesian Coordinates)
-4. 왼발 지지하며, 오른발 들기 (Cartesian Coordinates)
-5. 두발 지지 (Cartesian Coordinates)
+1. 5초동안, Walk ready 자세 만들기 
+	* Right foot : Desired Pos = [0;0.105;-0.55] & Desired Orientation = Base) (Joint Coordinates)
+	* Left foot : Desried Pos = [0;-0.105;-0.55] & Desired Orientation = Base) (Joint Coordinates)
+3. 오른발 지지하며, 왼발 들기 (Cartesian Coordinates)
+4. 두발 지지 (Cartesian Coordinates)
+5. 왼발 지지하며, 오른발 들기 (Cartesian Coordinates)
+6. 두발 지지 (Cartesian Coordinates)
 
 ### 과제
 * 땅에서 실습 7 수행하기
